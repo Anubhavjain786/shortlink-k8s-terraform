@@ -1,5 +1,7 @@
 # shortlink-k8s-terraform
 
+[![ci](https://github.com/Anubhavjain786/shortlink-k8s-terraform/actions/workflows/ci.yml/badge.svg)](https://github.com/Anubhavjain786/shortlink-k8s-terraform/actions/workflows/ci.yml)
+
 A small URL shortener (FastAPI + Redis) used as a vehicle for the interesting part: running it on Kubernetes the way a production service should run, with every piece of infrastructure managed by Terraform.
 
 The same Terraform modules deploy to two targets:
@@ -85,6 +87,7 @@ Everything in this table was run against the kind cluster (Kubernetes 1.36, thre
 | Zero-downtime rollout | Changed the image tag through Terraform under constant traffic | See "Lessons" below: 4 of 242 failed before the fix, 0 of 623 after |
 | Autoscaling | 12 parallel request loops from inside the cluster | CPU hit 166% of request, replicas went 3 to 5 within 60 seconds |
 | Unit tests | `make test` | 6 passed |
+| CI | GitHub Actions: tests, Terraform and Helm validation, deploy to kind, smoke test | Green on every push |
 
 ## Lessons from building it
 
