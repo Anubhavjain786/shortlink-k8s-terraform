@@ -1,0 +1,9 @@
+.git
+.github
+infra
+deploy
+kind
+tests
+**/__pycache__
+*.md
+.venv
